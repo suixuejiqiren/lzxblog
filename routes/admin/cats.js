@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoClient = require("mongodb").MongoClient;
-const DB_STR="mongodb://localhost:27017/myblog"
+const DB_STR="mongodb://localhost:27017/lzxsss"
 var ObjectId=require("mongodb").ObjectId;
 var router = express.Router();
 
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
       return;
      }
   
-    const db =client.db("myblog");
+    const db =client.db("lzxsss");
     var c = db.collection("cats");
     c.find().toArray(function(err,docs){
       if(err){
@@ -42,7 +42,7 @@ router.post('/add', function(req, res, next) {
       return;
      }
   
-    const db =client.db("myblog");
+    const db =client.db("lzxsss");
     var c = db.collection("cats");
     c.insert({title:title,sort:sort},function(err,result){
       if(err){
@@ -62,7 +62,7 @@ router.get('/edit', function(req, res, next) {
       return;
      }
   
-    const db =client.db("myblog");
+    const db =client.db("lzxsss");
     var c = db.collection("cats");
     c.find({_id:ObjectId(id)}).toArray(function(err,docs){
       if(err){
@@ -87,7 +87,7 @@ router.get('/edit', function(req, res, next) {
         return;
        }
     
-      const db =client.db("myblog");
+      const db =client.db("lzxsss");
       var c = db.collection("cats");
       c.update({_id:ObjectId(id)},{$set:{"title":title,"sort":sort}},function(err,result){
         if(err){
@@ -108,7 +108,7 @@ router.get('/edit', function(req, res, next) {
         return;
        }
     
-      const db =client.db("myblog");
+      const db =client.db("lzxsss");
       var c = db.collection("cats");
       c.remove({_id:ObjectId(id)},function(err,result){
         if(err){

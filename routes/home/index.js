@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoClient = require("mongodb").MongoClient;
-const DB_STR="mongodb://localhost:27017/myblog"
+const DB_STR="mongodb://localhost:27017/lzxsss"
 var router = express.Router();
 
 /* GET home page. */
@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
         return;
        }
     
-      const db =client.db("myblog");
+      const db =client.db("lzxsss");
       var c = db.collection("posts");
       c.find().toArray(function(err,docs){
         if(err){
